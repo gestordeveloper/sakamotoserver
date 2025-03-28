@@ -1,3 +1,5 @@
+ARG GIT_SHA
+
 # Use a imagem oficial do Node.js como base
 FROM node:20
 
