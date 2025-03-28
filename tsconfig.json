@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2017",             // ou superior
+    "module": "esnext",             // ou "es2022", "node16", etc.
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

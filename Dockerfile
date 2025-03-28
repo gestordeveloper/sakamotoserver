@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Instale as dependências
-RUN npm install --omit=dev
+RUN npm install
 
 # Compile o projeto TypeScript
 RUN npm run build
