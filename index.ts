@@ -1,20 +1,60 @@
-import { McpServer, ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import express from "express";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { z } from "zod";
+import cors from "cors";
 
-// Cria uma instância do servidor MCP
 const server = new McpServer({
-    name: "sakamoto",
+    name: "sakamoto_server",
     version: "1.0.0",
 });
 
-// Adiciona uma ferramenta de adição
-server.tool("add", { a: z.number(), b: z.number() },
-    async ({ a, b }) => ({
-        content: [{ type: "text", text: String(a + b) }],
+server.tool(
+    "hello",
+    { name: z.string() },
+    async ({ name }) => ({
+        content: [{ type: "text", text: `Olá ${name}, muito prazer!` }],
     })
 );
 
-// Inicia o servidor utilizando o transporte stdio
-const transport = new StdioServerTransport();
-await server.connect(transport);
+const app = express();
+
+app.use(
+    cors({
+        origin: "*",
+        methods: ["GET", "POST", "OPTIONS"],
+        credentials: false,
+    })
+);
+
+app.get("/", (req, res) => {
+    res.json({
+        name: "Sakamoto Server",
+        version: "1.0.0",
+        status: "running",
+        endpoints: {
+            "/": "Server information (this response)",
+            "/sse": "Server-Sent Events endpoint for MCP connection",
+            "/messages": "POST endpoint for MCP messages",
+        },
+        tools: [
+            { name: "hello", description: "Faz uma saudação calorosa" },
+        ],
+    });
+});
+
+let transport: SSEServerTransport;
+
+app.get("/sse", async (req, res) => {
+    transport = new SSEServerTransport("/messages", res);
+    await server.connect(transport);
+});
+
+app.post("/messages", async (req, res) => {
+    await transport.handlePostMessage(req, res);
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`MCP SSE Sakamoto Server running on port ${PORT}`);
+});
