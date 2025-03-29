@@ -10,10 +10,18 @@ const server = new McpServer({
 });
 
 server.tool(
-    "hello",
-    { name: z.string() },
-    async ({ name }) => ({
-        content: [{ type: "text", text: `Olá ${name}, muito prazer!` }],
+    "send_to_manager",
+    { content: z.string() },
+    async ({ content }) => ({
+        content: [{ type: "text", text: `Olá gerente! Segue aqui as informações do atendimento. ${content}` }],
+    })
+);
+
+server.tool(
+    "creating_lead_in_crm",
+    { name: z.string(), surname: z.string(), phone: z.string(), notes: z.string() },
+    async ({ name, surname, phone, notes }) => ({
+        content: [{ type: "text", text: `${name} ${surname} com o telefone ${phone}. Obs: ${notes}` }],
     })
 );
 
@@ -38,7 +46,8 @@ app.get("/", (req, res) => {
             "/messages": "POST endpoint for MCP messages",
         },
         tools: [
-            { name: "hello", description: "Faz uma saudação calorosa" },
+            { name: "send_to_manager", description: "Envia as informações do atendimento para o Gerente" },
+            { name: "creating_lead_in_crm", description: "Cadastra os dados do lead capturados no atendimento no CRM Payxe" },
         ],
     });
 });
