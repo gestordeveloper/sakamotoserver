@@ -9,5 +9,7 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "include": ["source/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
