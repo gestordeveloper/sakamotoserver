@@ -3,6 +3,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { z } from "zod";
 import cors from "cors";
+import Invoice from "./source/Models/Invoice";
 
 const server = new McpServer({
     name: "sakamoto_server",
@@ -23,6 +24,23 @@ server.tool(
     async ({ name, surname, phone, notes }) => ({
         content: [{ type: "text", text: `${name} ${surname} com o telefone ${phone}. Obs: ${notes}` }],
     })
+);
+
+server.tool(
+    "get_balance",
+    {},
+    async () => {
+            const invoice = new Invoice();
+            const response = invoice.wallets("278");
+            return {
+                content: [
+                    {
+                        type: "text",
+                        text: JSON.stringify(response),
+                    }
+                ]
+            }
+        }
 );
 
 const app = express();
@@ -48,6 +66,7 @@ app.get("/", (req, res) => {
         tools: [
             { name: "send_to_manager", description: "Envia as informações do atendimento para o Gerente" },
             { name: "creating_lead_in_crm", description: "Cadastra os dados do lead capturados no atendimento no CRM Payxe" },
+            { name: "get_balance", description: "Retorna o balanço do financeiro da empresa." },
         ],
     });
 });
