@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3a8fdf7d-c378-4c1a-9b27-2636f1853831" name="Changes" comment="" />
+    <list default="true" id="3a8fdf7d-c378-4c1a-9b27-2636f1853831" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/Core/Connection.ts" beforeDir="false" afterPath="$PROJECT_DIR$/source/Core/Connection.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/Models/Invoice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/source/Models/Invoice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/source/index.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +52,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\webservers\sakamoto\source" />
       <recent name="C:\xampp\htdocs\webservers\sakamoto" />
     </key>
   </component>
@@ -90,10 +96,5 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/index.js" />
-      </list>
-    </option>
   </component>
 </project>

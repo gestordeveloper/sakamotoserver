@@ -1,5 +1,5 @@
-import Connection from "../Core/Connection";
-import { CONF_PAYXE_API_EMAIL, CONF_PAYXE_API_PASSWORD } from "../Boot/Config";
+import Connection from "../Core/Connection.js";
+import { CONF_PAYXE_API_EMAIL, CONF_PAYXE_API_PASSWORD } from "../Boot/Config.js";
 
 export default class Invoice
 {

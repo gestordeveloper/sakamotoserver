@@ -3,7 +3,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { z } from "zod";
 import cors from "cors";
-import Invoice from "./Models/Invoice";
+import Invoice from "./Models/Invoice.js";
 
 const server = new McpServer({
     name: "sakamoto_server",

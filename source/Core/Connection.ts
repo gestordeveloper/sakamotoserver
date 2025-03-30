@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
-import { CONF_PAYXE_API_URL } from "../Boot/Config";
+import { CONF_PAYXE_API_URL } from "../Boot/Config.js";
 
 export default class Connection {
     private axiosInstance: AxiosInstance;
