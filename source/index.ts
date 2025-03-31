@@ -4,6 +4,7 @@ import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { z } from "zod";
 import cors from "cors";
 import Invoice from "./Models/Invoice.js";
+import Customer from "./Models/Customer.js";
 
 const server = new McpServer({
     name: "sakamoto_server",
@@ -11,7 +12,7 @@ const server = new McpServer({
 });
 
 server.tool(
-    "send_to_manager",
+    "sendToManager",
     { content: z.string() },
     async ({ content }) => ({
         content: [{ type: "text", text: `Olá gerente! Segue aqui as informações do atendimento. ${content}` }],
@@ -19,15 +20,35 @@ server.tool(
 );
 
 server.tool(
-    "creating_lead_in_crm",
+    "creatingLeadInCrm",
     { name: z.string(), surname: z.string(), phone: z.string(), notes: z.string() },
-    async ({ name, surname, phone, notes }) => ({
-        content: [{ type: "text", text: `${name} ${surname} com o telefone ${phone}. Obs: ${notes}` }],
-    })
+    async ({ name, surname, phone, notes }) => {
+            let data = {
+                action: "create",
+                funnel_id: "40",
+                stage_id: "213",
+                first_name: name,
+                last_name: surname,
+                telephone: phone,
+                activity: notes
+            }
+
+            const customer = new Customer();
+            const response = await customer.store(data);
+
+            return {
+                content: [
+                    {
+                        type: "text",
+                        text: JSON.stringify(response)
+                    }
+                ]
+            }
+    }
 );
 
 server.tool(
-    "get_balance",
+    "getBalance",
     { wallet: z.string() },
     async ({ wallet }) => {
             const invoice = new Invoice();
@@ -65,9 +86,9 @@ app.get("/", (req, res) => {
             "/messages": "POST endpoint for MCP messages",
         },
         tools: [
-            { name: "send_to_manager", description: "Envia as informações do atendimento para o Gerente" },
-            { name: "creating_lead_in_crm", description: "Cadastra os dados do lead capturados no atendimento no CRM Payxe" },
-            { name: "get_balance", description: "Retorna o balanço do financeiro da empresa." },
+            { name: "sendToManager", description: "Envia as informações do atendimento para o Gerente" },
+            { name: "creatingLeadInCrm", description: "Cadastra os dados do lead capturados no atendimento/qualificação no CRM Payxe" },
+            { name: "getBalance", description: "Retorna o balanço/caixa do financeiro da empresa." },
         ],
     });
 });
