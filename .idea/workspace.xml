@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a8fdf7d-c378-4c1a-9b27-2636f1853831" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/Core/Connection.ts" beforeDir="false" afterPath="$PROJECT_DIR$/source/Core/Connection.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/Models/Invoice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/source/Models/Invoice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/source/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="JavaScript File" />
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -90,7 +91,7 @@
       <updated>1743192893055</updated>
       <workItem from="1743192894111" duration="8261000" />
       <workItem from="1743261081732" duration="3282000" />
-      <workItem from="1743272305677" duration="2540000" />
+      <workItem from="1743272305677" duration="3645000" />
     </task>
     <servers />
   </component>

@@ -32,11 +32,12 @@ server.tool(
     async () => {
             const invoice = new Invoice();
             const response = invoice.wallets("278");
+
             return {
                 content: [
                     {
                         type: "text",
-                        text: JSON.stringify(response),
+                        text: `Balanço geral da empresa`,
                     }
                 ]
             }
