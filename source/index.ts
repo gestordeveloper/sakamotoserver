@@ -28,8 +28,8 @@ server.tool(
 
 server.tool(
     "get_balance",
-    {},
-    async () => {
+    { wallet: z.string() },
+    async ({ wallet }) => {
             const invoice = new Invoice();
             const response = invoice.wallets("278");
 
