@@ -31,13 +31,13 @@ server.tool(
     { wallet: z.string() },
     async ({ wallet }) => {
             const invoice = new Invoice();
-            const response = invoice.wallets("278");
+            const response = await invoice.wallets("278");
 
             return {
                 content: [
                     {
                         type: "text",
-                        text: `Balanço geral da empresa`,
+                        text: JSON.stringify(response.wallet),
                     }
                 ]
             }
