@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a8fdf7d-c378-4c1a-9b27-2636f1853831" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/source/Models/Customer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source/Models/Vapzap.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/Boot/Config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/source/Boot/Config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/Core/Connection.ts" beforeDir="false" afterPath="$PROJECT_DIR$/source/Core/Connection.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/Models/Invoice.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/source/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/source/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,22 +39,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "production",
-    "last_opened_file_path": "C:/xampp/htdocs/webservers/sakamoto/source/Models",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.build.executor": "Run",
-    "ts.external.directory.path": "C:\\xampp\\htdocs\\webservers\\sakamoto\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;production&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/webservers/sakamoto/source/Models&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\xampp\\htdocs\\webservers\\sakamoto\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\webservers\sakamoto\source\Models" />
@@ -93,7 +98,12 @@
       <updated>1743192893055</updated>
       <workItem from="1743192894111" duration="8261000" />
       <workItem from="1743261081732" duration="3282000" />
-      <workItem from="1743272305677" duration="5066000" />
+      <workItem from="1743272305677" duration="5651000" />
+      <workItem from="1743459439755" duration="624000" />
+      <workItem from="1743472799511" duration="152000" />
+      <workItem from="1743905942802" duration="3872000" />
+      <workItem from="1744301332694" duration="38000" />
+      <workItem from="1744324964505" duration="319000" />
     </task>
     <servers />
   </component>

@@ -3,66 +3,63 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { z } from "zod";
 import cors from "cors";
-import Invoice from "./Models/Invoice.js";
 import Customer from "./Models/Customer.js";
+import Vapzap from "./Models/Vapzap.js";
 
 const server = new McpServer({
     name: "sakamoto_server",
-    version: "1.0.0",
+    version: "1.1.0",
 });
 
 server.tool(
-    "sendToManager",
-    { content: z.string() },
-    async ({ content }) => ({
-        content: [{ type: "text", text: `Olá gerente! Segue aqui as informações do atendimento. ${content}` }],
-    })
-);
-
-server.tool(
-    "creatingLeadInCrm",
+    "createCustomer",
     { name: z.string(), surname: z.string(), phone: z.string(), notes: z.string() },
     async ({ name, surname, phone, notes }) => {
-            let data = {
-                action: "create",
-                funnel_id: "40",
-                stage_id: "213",
-                first_name: name,
-                last_name: surname,
-                telephone: phone,
-                activity: notes
-            }
+        let data = {
+            action: "create",
+            funnel_id: "40",
+            stage_id: "213",
+            first_name: name,
+            last_name: surname,
+            telephone: phone,
+            activity: notes
+        }
 
-            const customer = new Customer();
-            const response = await customer.store(data);
+        const customer = new Customer();
+        const response = await customer.store(data);
 
-            return {
-                content: [
-                    {
-                        type: "text",
-                        text: JSON.stringify(response)
-                    }
-                ]
-            }
+        return {
+            content: [
+                {
+                    type: "text",
+                    text: JSON.stringify(response)
+                }
+            ]
+        }
     }
 );
 
 server.tool(
-    "getBalance",
-    { wallet: z.string() },
-    async ({ wallet }) => {
-            const invoice = new Invoice();
-            const response = await invoice.wallets("278");
-
-            return {
-                content: [
-                    {
-                        type: "text",
-                        text: JSON.stringify(response.wallet),
-                    }
-                ]
-            }
+    "sendText",
+    { instance: z.string(), apikey: z.string(), phone: z.string(), text: z.string() },
+    async ({ instance, apikey, phone, text }) => {
+        let data = {
+            number: phone,
+            text: text
         }
+
+        const vapzap = new Vapzap();
+        const response = await vapzap.text(instance, apikey, data);
+
+        return {
+            content: [
+                {
+                    type: "text",
+                    text: JSON.stringify(response)
+                }
+            ]
+        }
+    }
 );
 
 const app = express();

@@ -4,9 +4,9 @@ import { CONF_PAYXE_API_URL } from "../Boot/Config.js";
 export default class Connection {
     private axiosInstance: AxiosInstance;
 
-    constructor() {
+    constructor(baseURL = CONF_PAYXE_API_URL) {
         this.axiosInstance = axios.create({
-            baseURL: CONF_PAYXE_API_URL,
+            baseURL: baseURL,
         });
     }
 
